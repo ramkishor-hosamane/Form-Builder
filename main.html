@@ -33,12 +33,12 @@
 
     <div id="sub_body">
 
-        <div class="row" ng-controller="oneCtrl">
+        <div id="design_body" class="row" ng-controller="oneCtrl">
 
             <div class="col-2 navbar-inner border border-dark" id="input_field_container" style="border-width:3px">
                 <div style="text-align: center;">
 
-                    <h2>Input Fields</h2>
+                    <h4>Input Fields</h4>
                     <div class="btn btn-droppable" ng-repeat="item in input_fields" data-drop="true"
                         ng-model='input_fields'
                         data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=input_fields])'}"
@@ -97,6 +97,7 @@
             <div class="navbar-inner col-2 border border-dark " id="input_field_options_container"
                 style="border-width:3px">
                 <div class="container form-inline" style="text-align: center;">
+                    <h4>Field Properties</h4>
 
 
 

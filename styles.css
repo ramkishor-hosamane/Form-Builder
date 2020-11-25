@@ -11,7 +11,7 @@ li
 #sub_body
 {
       position: absolute;
-width: 98%;
+width: 96%;
 top: 150px;
 left: 27px;
 height: 500px;
@@ -23,14 +23,17 @@ height: 500px;
 #input_field_options_container{
 
 }
-
+#design_body
+{
+      height: 500px;    
+ 
+}
 
 #design_option{
-        position: relative;
+position: relative;
 width: 100%;
 top: 50px;
 left: 20%;
-height: 500px;    
 }
 
 #design_option button
