@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -21,19 +22,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css"
         rel="stylesheet" type="text/css" />
-    <link href="styles.css" rel="stylesheet">
 
     <script src="angular-dragdrop.min.js"></script>
     <script src="app.js"></script>
 </head>
 
 
-<body>
+<body ng-controller="oneCtrl">
 
 
     <div id="sub_body">
 
-        <div id="design_body" class="row" ng-controller="oneCtrl">
+        <div id="design_body" class="row" >
 
             <div class="col-2 navbar-inner border border-dark" id="input_field_container" style="border-width:3px">
                 <div style="text-align: center;">
@@ -70,13 +70,13 @@
                             <li class="span3" style='margin-left:5%;margin-top:5%;width:90%'>
                                 <div class="thumbnail" data-drop="true" ng-model='form_canvas'
                                     data-jqyoui-options="optionsList1"
-                                    jqyoui-droppable="{multiple:true,onDrop:'hello'}">
+                                    jqyoui-droppable="{multiple:true,onDrop:'after_adding_field'}">
                                     <!-- beforeDrop:'beforeDropItem'-->
                                     <div class="caption">
                                         <div class="btn btn-info btn-draggable" ng-repeat="item in form_canvas"
                                             ng-show="item.title" data-drag="{{item.drag}}"
                                             data-jqyoui-options="{revert: 'invalid'}" ng-model="form_canvas"
-                                            jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                                            jqyoui-draggable="{index: {{$index}},animate:true}" ng-click="display_options(item)" >{{ item.name }}</div>
                                     </div>
                                 </div>
                             </li>
@@ -94,13 +94,16 @@
 
 
 
-            <div class="navbar-inner col-2 border border-dark " id="input_field_options_container"
+            <div class="col-2 border border-dark " id="input_field_options_container"
                 style="border-width:3px">
-                <div class="container form-inline" style="text-align: center;">
+                <div class="" style="text-align: center;">
                     <h4>Field Properties</h4>
-
-
-
+                    <div id="options" style="margin-right:10px">
+                        <input id="input_name" type="text" ng-model="input_field_name" ng-keyup="change_field_name()" placeholder="name">
+                        <br>
+                        <button class="btn btn-primary" ng-click="delete_field()">Delete</button>
+                    </div>
+  
 
 
                 </div>
@@ -114,8 +117,8 @@
         </div>
         <div class="container" id="design_option">
             <button class="btn btn-primary" ng-click="GenerateForm()">Save</button>
-            <button class="btn btn-primary" ng-click="">Clear</button>
-    
+            <button class="btn btn-primary" ng-click="delete_all_fields()">Clear</button>
+            <div class="result"></div>
         </div>
     
     </div>
