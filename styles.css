@@ -1,3 +1,22 @@
-      .thumbnail { height: 280px !important;border-width:3px }
-      .btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
-      .btn-draggable { width: 90%; margin-bottom: 20px;padding-bottom:5px ;}
+.thumbnail { height: 280px !important;border-width:3px }
+
+
+#.btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
+#.btn-draggable { width: 90%; margin-bottom: 20px;padding-bottom:5px ;}
+.btn-droppable {display: block;}
+.btn-draggable {display: block;}
+
+#sub_body
+{     position: absolute;
+width: 100%;
+top: 150px;
+}
+
+#input_field_container
+{
+      width: 100px;
+}
+
+*{
+      color: black;
+}
