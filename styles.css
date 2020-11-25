@@ -1,22 +1,42 @@
 .thumbnail { height: 280px !important;border-width:3px }
+li
+{
+      list-style: none;
+}
 
+.btn-droppable { padding-left: 4px;display: block; }
+.btn-draggable { margin-bottom: 20px;padding-bottom:5px ;display: block;}
 
-#.btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
-#.btn-draggable { width: 90%; margin-bottom: 20px;padding-bottom:5px ;}
-.btn-droppable {display: block;}
-.btn-draggable {display: block;}
 
 #sub_body
-{     position: absolute;
-width: 100%;
+{
+      position: absolute;
+width: 98%;
 top: 150px;
+left: 27px;
+height: 500px;
 }
 
 #input_field_container
 {
-      width: 100px;
+}
+#input_field_options_container{
+
 }
 
+
+#design_option{
+        position: relative;
+width: 100%;
+top: 50px;
+left: 20%;
+height: 500px;    
+}
+
+#design_option button
+{
+      width: 25%;
+}
 *{
       color: black;
 }
