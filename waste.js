@@ -24,11 +24,6 @@
 
 
 
-
-
-
-
-
   $scope.GenerateForm = function(){
     var result_container = $("#Result");
     $scope.code ="<form>";

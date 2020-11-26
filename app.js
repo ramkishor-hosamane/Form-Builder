@@ -20,11 +20,14 @@ App.controller('oneCtrl', function($scope, $timeout) {
     $scope.input_field_id=-99;
     $scope.input_field_name="";
     $scope.form_name = "";
+    $scope.hide_options()
+
     $("#Result").html("");
   }
   $scope.delete_field = function(){
     //$scope.GenerateForm();
     $scope.form_canvas.splice($scope.input_field_id,1);
+    $scope.hide_options()
   }
   $scope.display_options = function($item){
     $('#options').show()
@@ -32,6 +35,12 @@ App.controller('oneCtrl', function($scope, $timeout) {
       $scope.input_field_name=$item.name;
       }
   
+  $scope.hide_options = function(){
+        $('#options').hide()
+          $scope.input_field_id=-99;
+          $scope.input_field_name="";
+          }
+        
 
 
 
@@ -49,11 +58,18 @@ App.controller('oneCtrl', function($scope, $timeout) {
         $scope.code +='\n \
                         <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">\n \
                           <div class="col-md-10 offset-md-1 input-icons">\n \
-                              <input type="'+$scope.form_canvas[i].title.toLowerCase()+'"\n \
-                              name ="' +$scope.form_canvas[i].name.toLowerCase()+'"\n \
-                              class="form-control input-field"\n \
-                              style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"\n \
-                              placeholder="'+$scope.form_canvas[i].name.toLowerCase()+'" />\n \
+                            <div class="row">\n \
+                                <div class="col-2">\n \
+                                  <span class="field_label">'+$scope.form_canvas[i].name+'</span> \n \
+                                </div>\n \
+                                <div class="col-8">\n \
+                                  <input type="'+$scope.form_canvas[i].title.toLowerCase()+'"\n \
+                                  name ="' +$scope.form_canvas[i].name.toLowerCase()+'"\n \
+                                  class="form-control input-field"\n \
+                                  style="margin-left:0px;font-family:Roboto, sans-serif;transform: translateY(-11%);" name="job_title"\n \
+                                   />\n \
+                                </div>\n \
+                            </div>\n \
                           </div>\n \
                         </div>'
       }
@@ -103,7 +119,7 @@ App.controller('oneCtrl', function($scope, $timeout) {
 
 
 
-$scope.Show = function($page){
+$scope.Show = function($page,$element){
       $('#Design').hide();
       $('#Form').hide();
       $('#Code').hide();
@@ -135,3 +151,9 @@ $scope.Show('#Design')
     }
   };
 });
+
+
+
+
+
+

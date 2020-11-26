@@ -37,7 +37,7 @@
 	<link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
 	<link rel="stylesheet" href="assets/css/signup.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
@@ -59,7 +59,7 @@
     <div id="sub_body">
         <div id="Design">
 
-            <div id="design_body" class="row">
+            <div id="design_body" class="row  bg-danger ">
 
                 <div class="col-2 navbar-inner border border-dark" id="input_field_container" style="border-width:3px">
                     <div style="text-align: center;">
@@ -86,8 +86,7 @@
 
 
 
-
-                <div class='col-8 contentWrapper ng-cloak border border-dark'>
+                <div class='col-8 contentWrapper ng-cloak border border-dark bg-secondary'>
                     <div class='content'>
                         <div class="row-fluid">
                             <ul class="thumbnails">
@@ -122,7 +121,7 @@
 
 
 
-                <div class="col-2 border border-dark " id="input_field_options_container" style="border-width:3px">
+                <div class="col-2 border border-dark bg-danger" id="input_field_options_container" style="border-width:3px">
                     <div class="" style="text-align: center;height: 250px;">
                         <h4>Field Properties</h4>
                         <div id="options">
@@ -130,6 +129,8 @@
                                 ng-keyup="change_field_name()" placeholder="name">
                             <br>
                             <button class="btn btn-primary" ng-click="delete_field()">Delete</button>
+                            <br><br><br><br>
+                            <button class="btn btn-primary" ng-click="hide_options()"><i class="fa fa-close" style="color: red;"></i></button>
                         </div>
 
 
@@ -214,52 +215,16 @@
 
 
 
-
-<!--                        <form>
-
-                            <div class="form-group">
-                                <div id="formdiv" style="width: 100%;">
-
-                                    <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
-
-
-                                        <div class="col-md-10 offset-md-1 input-icons">
-
-                                            <input type="text" class="form-control input-field"
-                                                style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"
-                                                placeholder="Job Title" />
-
-                                        </div>
-                                    </div>
+<!-- Output Code
 
 
 
-                                    <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
-                                        <div class="offset-md-5">
-
-                                            <button class="btn btn-info btn-lg" style="margin-left:16px;"
-                                                type="submit">Submit </button>
-                                        </div>
-                                    </div>
-
-
-
-
-                                </div>
-                            </div>
-                        </form>-->
-
-
-
-
-
-
-<!-- Output Code -->
+-->
 
         <div id="Code" class="container">
-            <div class="border border-black scrollable" style="height: 400px;">
+            <div  class="border border-black scrollable" style="margin-top:10px;height: 540px;">
 
-                <textarea style="height: 100%; width: 100%;" ng-model="code">
+                <textarea id="CodeBody" style="height: 100%; width: 100%;" ng-model="code">
 
                 </textarea>
 
@@ -285,13 +250,13 @@
 
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link " href="#" ng-click="Show('#Design')"
+                            <li class="nav-item"><a class="nav-link " href="#" ng-click="Show('#Design',this)"
                                     style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Design</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" ng-click="Show('#Form')"
+                            <li class="nav-item"><a class="nav-link" href="#" name="sad" ng-click="Show('#Form',this)"
                                     style="text-shadow: 0px 0px;">Form</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" ng-click="Show('#Code')"
+                            <li class="nav-item"><a class="nav-link" href="#" ng-click="Show('#Code',this)"
                                     style="text-shadow: 0px 0px;">Code</a>
                             </li>
 
@@ -327,3 +292,15 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
