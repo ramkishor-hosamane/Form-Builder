@@ -11,13 +11,15 @@ App.controller('oneCtrl', function($scope, $timeout) {
   $scope.code="";
 
   $('#options').hide()
-
   $scope.change_field_name = function($key){
     $scope.form_canvas[$scope.input_field_id].name = $scope.input_field_name;
   }
   $scope.delete_all_fields=function(){
     $scope.form_canvas = [];
-
+    $scope.code="";
+    $scope.input_field_id=-99;
+    $scope.input_field_name="";
+    $scope.form_name = "";
   }
   $scope.delete_field = function(){
     //$scope.GenerateForm();
@@ -33,17 +35,41 @@ App.controller('oneCtrl', function($scope, $timeout) {
 
 
   $scope.GenerateForm = function(){
-    //var result_container = $("#result");
-    $scope.code="<form>";
+    var result_container = $("#Result");
+    $scope.code ="\n \
+                   <form> \n \
+                      <div class='form-group'> \n \
+                         <div id='formdiv' style='width: 100%;'>";
       var i;
       for(i=0;i<$scope.form_canvas.length;i++){
           
-        $scope.code += "<input type='"+$scope.form_canvas[i].title.toLowerCase()+"' name='"+$scope.form_canvas[i].name.toLowerCase()+"'/>"
+        $scope.code +='\n \
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">\n \
+                          <div class="col-md-10 offset-md-1 input-icons">\n \
+                              <input type="'+$scope.form_canvas[i].title.toLowerCase()+'"\n \
+                              name ="' +$scope.form_canvas[i].name.toLowerCase()+'"\n \
+                              class="form-control input-field"\n \
+                              style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"\n \
+                              placeholder="'+$scope.form_canvas[i].name.toLowerCase()+'" />\n \
+                          </div>\n \
+                        </div>'
       }
 
-      $scope.code+="</form>"
-      //result_container.append($scope.code)
-      alert($scope.code)
+                    $scope.code+='\n \
+                          <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">\n \
+                            <div class="offset-md-5">\n \
+                              <button class="btn btn-info btn-lg" style="margin-left:16px;"\n \
+                                  type="submit">Submit </button>\n \
+                            </div>\n \
+                          </div>\n \
+                       </div>\n \
+                      </div>\n \
+                    </form>'
+      result_container.append($scope.code)
+      //alert($scope.code)
+      //$scope.html_code= $scope.code.replace("<", "&lt");
+
+      //alert($scope.html_code)
   }
 
  $scope.after_adding_field = function(){
@@ -69,17 +95,19 @@ App.controller('oneCtrl', function($scope, $timeout) {
     $scope.input_fields[2] =element;
 
   }
-
- 
-
-
 }
 
 
 
 
+$scope.Show = function($page){
+      $('#Design').hide();
+      $('#Form').hide();
+      $('#Code').hide();
+      $($page).show();
+}
 
-
+$scope.Show('#Design')
 
 
 

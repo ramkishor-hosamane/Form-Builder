@@ -17,6 +17,31 @@
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 
+    <!--Form styles-->
+
+
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/Carousel-Hero.css">
+	<link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+	<link rel="stylesheet" href="assets/css/Features-Clean.css">
+	<link rel="stylesheet" href="assets/css/Footer-Dark.css">
+	<link rel="stylesheet" href="assets/css/GetExperience.css">
+	<link rel="stylesheet" href="assets/css/Header-Blue.css">
+	<link rel="stylesheet" href="assets/css/Header-Dark.css">
+	<link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+	<link rel="stylesheet" href="assets/css/Post-Card.css">
+	<link rel="stylesheet" href="assets/css/project-card.css">
+	<link rel="stylesheet" href="assets/css/Responsive-Form-1.css">
+	<link rel="stylesheet" href="assets/css/Responsive-Form.css">
+	<link rel="stylesheet" href="assets/css/Sidebar-Menu-1.css">
+	<link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
+	<link rel="stylesheet" href="assets/css/signup.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
@@ -32,95 +57,216 @@
 
 
     <div id="sub_body">
+        <div id="Design">
 
-        <div id="design_body" class="row" >
+            <div id="design_body" class="row">
 
-            <div class="col-2 navbar-inner border border-dark" id="input_field_container" style="border-width:3px">
-                <div style="text-align: center;">
+                <div class="col-2 navbar-inner border border-dark" id="input_field_container" style="border-width:3px">
+                    <div style="text-align: center;">
 
-                    <h4>Input Fields</h4>
-                    <div class="btn btn-droppable" ng-repeat="item in input_fields" data-drop="true"
-                        ng-model='input_fields'
-                        data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=input_fields])'}"
-                        jqyoui-droppable="{index: {{$index}}}">
-                        <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}"
-                            data-jqyoui-options="{revert: 'invalid'}" ng-model="input_fields"
-                            jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.title">
-                            {{item.title}}</div>
+                        <h4>Input Fields</h4>
+                        <div class="btn btn-droppable" ng-repeat="item in input_fields" data-drop="true"
+                            ng-model='input_fields'
+                            data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=input_fields])'}"
+                            jqyoui-droppable="{index: {{$index}}}">
+                            <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}"
+                                data-jqyoui-options="{revert: 'invalid'}" ng-model="input_fields"
+                                jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}"
+                                ng-hide="!item.title">
+                                {{item.title}}</div>
+                        </div>
+
+
+
+
                     </div>
-
-
-
-
                 </div>
-            </div>
 
 
 
 
 
 
-            <div class='col-8 contentWrapper ng-cloak border border-dark'>
-                <div class='content'>
-                    <div class="row-fluid">
-                        <ul class="thumbnails">
+                <div class='col-8 contentWrapper ng-cloak border border-dark'>
+                    <div class='content'>
+                        <div class="row-fluid">
+                            <ul class="thumbnails">
 
 
 
-                            <li class="span3" style='margin-left:5%;margin-top:5%;width:90%'>
-                                <div class="thumbnail" data-drop="true" ng-model='form_canvas'
-                                    data-jqyoui-options="optionsList1"
-                                    jqyoui-droppable="{multiple:true,onDrop:'after_adding_field'}">
-                                    <!-- beforeDrop:'beforeDropItem'-->
-                                    <div class="caption">
-                                        <div class="btn btn-info btn-draggable" ng-repeat="item in form_canvas"
-                                            ng-show="item.title" data-drag="{{item.drag}}"
-                                            data-jqyoui-options="{revert: 'invalid'}" ng-model="form_canvas"
-                                            jqyoui-draggable="{index: {{$index}},animate:true}" ng-click="display_options(item)" >{{ item.name }}</div>
+                                <li class="span3" style='margin-left:5%;margin-top:5%;width:90%'>
+                                    <div class="thumbnail" data-drop="true" ng-model='form_canvas'
+                                        data-jqyoui-options="optionsList1"
+                                        jqyoui-droppable="{multiple:true,onDrop:'after_adding_field',stack:true}">
+                                        <!-- beforeDrop:'beforeDropItem'-->
+                                        <div class="caption">
+                                            <div class="btn btn-info btn-draggable" ng-repeat="item in form_canvas"
+                                                ng-show="item.title" data-drag="{{item.drag}}"
+                                                data-jqyoui-options="{revert: 'invalid'}" ng-model="form_canvas"
+                                                jqyoui-draggable="{index: {{$index}},animate:true}"
+                                                ng-click="display_options(item)">{{ item.name }}</div>
+                                        </div>
                                     </div>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="col-2 border border-dark " id="input_field_options_container" style="border-width:3px">
+                    <div class="" style="text-align: center;height: 250px;">
+                        <h4>Field Properties</h4>
+                        <div id="options" style="">
+                            <input id="input_name" type="text" style="width: 100%;margin-bottom: 10px;" ng-model="input_field_name"
+                                ng-keyup="change_field_name()" placeholder="name">
+                            <br>
+                            <button class="btn btn-primary" ng-click="delete_field()">Delete</button>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="" style="text-align: center;">
+                        <h4>Form Properties</h4>
+                        <div>
+                            <input id="form_name" type="text" style="width: 100%;margin-bottom: 10px;" ng-model="form_name"
+                                placeholder="Form name">
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+            <div class="container" id="design_option">
+                <button class="btn btn-primary" ng-click="GenerateForm()">Save</button>
+                <button class="btn btn-primary" ng-click="delete_all_fields()">Clear</button>
+                <div class="result"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Output Form -->
+        <div id="Form">
+
+            <div class="col-lg">
+                <div class="row" style="margin-left: 45%">
+                    <div class="col">
+                        <div class="container">
+                            <h1 class="display-5">{{ form_name }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin-right: 32%">
+                    <div id="Result">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+<!--                        <form>
+
+                            <div class="form-group">
+                                <div id="formdiv" style="width: 100%;">
+
+                                    <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+                                        <div class="col-md-10 offset-md-1 input-icons">
+
+                                            <input type="text" class="form-control input-field"
+                                                style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"
+                                                placeholder="Job Title" />
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                                        <div class="offset-md-5">
+
+                                            <button class="btn btn-info btn-lg" style="margin-left:16px;"
+                                                type="submit">Submit </button>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
-                            </li>
-
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                        </form>-->
 
 
 
 
 
 
+<!-- Output Code -->
 
-            <div class="col-2 border border-dark " id="input_field_options_container"
-                style="border-width:3px">
-                <div class="" style="text-align: center;">
-                    <h4>Field Properties</h4>
-                    <div id="options" style="margin-right:10px">
-                        <input id="input_name" type="text" ng-model="input_field_name" ng-keyup="change_field_name()" placeholder="name">
-                        <br>
-                        <button class="btn btn-primary" ng-click="delete_field()">Delete</button>
-                    </div>
-  
+        <div id="Code" class="container">
+            <div class="border border-black scrollable" style="height: 400px;">
 
+                <textarea style="height: 100%; width: 100%;" ng-model="code">
 
-                </div>
-            </div>
-
-
-
-
+                </textarea>
 
 
         </div>
-        <div class="container" id="design_option">
-            <button class="btn btn-primary" ng-click="GenerateForm()">Save</button>
-            <button class="btn btn-primary" ng-click="delete_all_fields()">Clear</button>
-            <div class="result"></div>
         </div>
-    
+
     </div>
 
 
@@ -139,12 +285,14 @@
 
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link active" href="#"
+                            <li class="nav-item"><a class="nav-link " href="#" ng-click="Show('#Design')"
                                     style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Design</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">Form</a>
+                            <li class="nav-item"><a class="nav-link" href="#" ng-click="Show('#Form')"
+                                    style="text-shadow: 0px 0px;">Form</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">Code</a>
+                            <li class="nav-item"><a class="nav-link" href="#" ng-click="Show('#Code')"
+                                    style="text-shadow: 0px 0px;">Code</a>
                             </li>
 
                             <li class="nav-item"></li>
