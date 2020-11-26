@@ -20,6 +20,7 @@ App.controller('oneCtrl', function($scope, $timeout) {
     $scope.input_field_id=-99;
     $scope.input_field_name="";
     $scope.form_name = "";
+    $("#Result").html("");
   }
   $scope.delete_field = function(){
     //$scope.GenerateForm();
@@ -36,6 +37,8 @@ App.controller('oneCtrl', function($scope, $timeout) {
 
   $scope.GenerateForm = function(){
     var result_container = $("#Result");
+    result_container.html("");
+
     $scope.code ="\n \
                    <form> \n \
                       <div class='form-group'> \n \
