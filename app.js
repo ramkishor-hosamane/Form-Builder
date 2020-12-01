@@ -6,6 +6,9 @@ App.controller('oneCtrl', function($scope, $timeout) {
   $scope.input_fields = [
     { "id":'', 'title': 'Text','name':'Text', 'drag': true },
     { "id":'','title': 'Email','name':'Email', 'drag': true },
+    { "id":'','title': 'Password','name':'Password', 'drag': true },
+    { "id":'','title': 'Date','name':'Date', 'drag': true },
+    
     { "id":'','title': 'Number','name':'Number', 'drag': true },
   ];
   $scope.code="";
@@ -102,18 +105,18 @@ App.controller('oneCtrl', function($scope, $timeout) {
 
   element = { "id":'', 'title': item_added,'name':item_added, 'drag': true };
 
-  if(item_added=="Text"){
+  if(item_added=="Text")
     $scope.input_fields[0] =element;
-
-  }
-  else if(item_added=="Email"){
+  else if(item_added=="Email")
     $scope.input_fields[1] =element;
-
-  }
-  else{
+  else if(item_added=="Password")
     $scope.input_fields[2] =element;
+  else if(item_added=="Date")
+    $scope.input_fields[3] =element;
+  else
+    $scope.input_fields[4] =element;
 
-  }
+  
 }
 
 
