@@ -1,0 +1,214 @@
+  <!-- Navigation bar-->
+  <div class="row">
+    <div class="col">
+      <nav class="navbar navbar-dark fixed-top navbar-expand-md text-left" style="background: #009877;font-size: 22px;">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
+              class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><img
+            class="rounded-circle" src="assets/img/undraw_updated_resume_u4fy.svg" style="display: none;" width="200"
+            height="100">
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link active" href="#"
+                  style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">Code</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+  <div class="row" id="sub_body">
+
+
+    <!-- Input Fields -->
+    <div class="col-2">
+      <div class="card">
+        <h5 class="card-header">Elements</h5>
+
+        <div class="card-body"
+        cdkDropList #elementList="cdkDropList" [cdkDropListData]="input_elements" [cdkDropListConnectedTo]="[designList]" (cdkDropListDropped)="drop($event)"
+    
+        >
+
+
+          <div class="btn btn-block input-element example-boxs" *ngFor="let element of input_elements" cdkDrag  >{{ element.type }}</div>
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <!-- Desigin body-->
+    <div class="col-7 ">
+      <div class="card">
+        <h5 class="card-header">Design</h5>
+          
+
+
+
+
+
+          <div class="card-body" cdkDropList #designList="cdkDropList" [cdkDropListData]="design_elements" 
+           (cdkDropListDropped)="drop($event)">
+          
+           <div *ngIf="design_elements.length>0; else elseBlock">
+                  <div class="design-element row" *ngFor="let element of design_elements" cdkDrag>
+                    <div class="col-2 design-element-label">
+                      <span  [hidden]="!element.show">{{element.type}} </span>
+
+                    </div>
+                    <div class="col-10 design-element-input">
+                      <input type="element.type">
+
+
+                    </div>
+                  </div>
+           </div>
+           <ng-template #elseBlock>
+            <div class="area">
+              <div id="dropZone">Drag & drop elements here</div>
+            </div>
+  
+
+           </ng-template>
+           
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- Properties-->
+    <div class="col-3">
+
+      <div class="card ">
+        <div>
+          <h5 class="card-header text-center">Properties</h5>
+        </div>
+          <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs" >
+
+            <li class="nav-item">
+              <a class="nav-link  active" style="color: black;" role="tab" data-toggle="tab" href="#field_prop">Element&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="color: black;" role="tab" data-toggle="tab" href="#form_prop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Form  </a>
+            </li>
+          </ul>
+
+  
+        </div>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="field_prop">
+            <div id="options_body">
+              <h4 style="visibility: hidden;">Field Properties</h4>
+              <div id="options">
+
+                  <div class="option">
+                    <span class="option-name">Name</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+                  <div class="option">
+                    <span class="option-name">Placeholder</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+                  <div class="option">
+                    <span class="option-name">ID</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+                  <div class="option">
+                    <span class="option-name">Class</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+
+
+                  <div class="option">
+
+                    <input type="checkbox" name="is-required" id="is-required" style="position: relative;margin-right: 8px;top: 2px;" value="is-required">
+                    <span class="">is required</span>
+
+                  </div>
+
+
+
+
+                  <div class="option" style="display: none;">
+
+                      <select name="element-width" id="width_selector">
+                          <option value="col-md-1">1</option>
+                          <option value="col-md-2">2</option>
+                          <option value="col-md-3">3</option>
+                          <option value="col-md-4">4</option>
+
+                        </select>
+                  
+                  </div>
+                  
+
+                  <div class="option">
+                    <button class="btn btn-primary" style="margin-left: 10%;;">Close</button><button class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                  </div>
+
+              </div>
+
+              </div>
+
+          </div>
+          
+          
+          <div role="tabpanel" class="tab-pane" id="form_prop">
+            
+            <div id="options_body">
+              <h4 style="visibility: hidden;">Field Properties</h4>
+              <div id="options">
+
+                  <div class="option">
+                    <span class="option-name">Name</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+                  <div class="option">
+                    <span class="option-name">ID</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+                  <div class="option">
+                    <span class="option-name">Class</span>
+                    <input class="option-input" type="text" placeholder="">
+                  </div>
+
+
+              </div>
+
+              </div>
+
+
+          </div>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+

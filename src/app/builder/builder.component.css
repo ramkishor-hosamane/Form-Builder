@@ -1,0 +1,165 @@
+.input-element
+{
+ text-align: center;background-color: #7d34f4;color: white;margin-bottom: 10px;
+}
+ .card-header
+ {
+   text-align: center;
+ }
+ #sub_body {
+   position: absolute;
+   width: 100%;
+   left: 15px;
+   top: 75px;
+ }
+
+ .nav-link {
+   color: white;
+ }
+
+ .active {
+   border-top: none;
+   border-width: 20%;
+   border-bottom: 2px solid white;
+ }
+ .area {
+padding: 15px;
+background: rgb(255, 255, 255);
+}
+#dropZone {
+border: 2px dashed #bbb;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding: 50px;
+text-align: center;
+font: 19pt bold arial;
+color: rgb(90, 90, 90);
+}
+.option
+{
+margin-bottom: 30px;
+}
+#options_body{
+height: auto;padding-left: 15px;
+}
+.option-name
+{
+display: block;
+}
+.option-input
+{
+width: 90%;
+}
+
+
+
+
+/* Drag n Drop CSS */
+.design-element {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: rgb(140, 140, 140);
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0 50px;
+  padding-top: 10px;
+}
+
+.design-element:active
+{
+  
+  border: 2px solid dodgerblue;
+}
+.design-element:hover
+{
+  background: rgb(87, 87, 87);
+  cursor: pointer;
+}
+
+
+.design-element-label  span
+{
+  color: white;
+  font-size: 18px;
+}
+
+.design-element-input input{
+  width: 100%;
+}
+
+.example-container {
+  vertical-align: top;
+}
+
+.example-list {
+  border: solid 2px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: rgb(116, 116, 116);
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background: rgb(87, 87, 87);
+
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+  background-color: rgb(182, 255, 182);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+
+
+.cdk-drop-dragging .cdk-drag {
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+/* Animate items as they’re being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  /* Animate an item that has been dropped. */
+  .cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+
+
+
+
+
+
+
+
+
+
