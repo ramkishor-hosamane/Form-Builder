@@ -9,9 +9,9 @@
           <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
               <li class="nav-item"><a class="nav-link active" href="#"
-                  style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a>
+                  style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Design</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">Code</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">Preview</a></li>
             </ul>
           </div>
         </div>
@@ -22,18 +22,12 @@
 
 
   <div class="row" id="sub_body">
-
-
     <!-- Input Fields -->
     <div class="col-2">
       <div class="card">
         <h5 class="card-header">Elements</h5>
 
-        <div class="card-body"
-        cdkDropList #elementList="cdkDropList" [cdkDropListData]="input_elements" [cdkDropListConnectedTo]="[designList]" (cdkDropListDropped)="drop($event)"
-    
-        >
-
+        <div class="card-body" cdkDropList #elementList="cdkDropList" [cdkDropListData]="input_elements" [cdkDropListConnectedTo]="[designList]" (cdkDropListDropped)="drop($event)">
 
           <div class="btn btn-block input-element example-boxs" *ngFor="let element of input_elements" cdkDrag  >{{ element.type }}</div>
 
@@ -62,13 +56,13 @@
            (cdkDropListDropped)="drop($event)">
           
            <div *ngIf="design_elements.length>0; else elseBlock">
-                  <div class="design-element row" *ngFor="let element of design_elements" cdkDrag>
+                  <div class="design-element row" (click)="select_options(element)"  *ngFor="let element of design_elements" cdkDrag>
                     <div class="col-2 design-element-label">
-                      <span  [hidden]="!element.show">{{element.type}} </span>
+                      <span >{{element.name}} </span>
 
                     </div>
                     <div class="col-10 design-element-input">
-                      <input type="element.type">
+                      <input type="element.type" >
 
 
                     </div>
@@ -112,28 +106,28 @@
         </div>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="field_prop">
-            <div id="options_body">
-              <h4 style="visibility: hidden;">Field Properties</h4>
+            <div id="options_body" [hidden] = "!is_show_element_options">
+              <h3 style="text-align: center;margin-top: 4px;margin-bottom: 4px;">{{selected_option_name}}</h3>
               <div id="options">
 
                   <div class="option">
                     <span class="option-name">Name</span>
-                    <input class="option-input" type="text" placeholder="">
+                    <input  [(ngModel)]="selected_option_name"  (keyup)="onKeyUpName()" class="option-input" type="text" placeholder="">
                   </div>
 
                   <div class="option">
                     <span class="option-name">Placeholder</span>
-                    <input class="option-input" type="text" placeholder="">
+                    <input [(ngModel)]="selected_option_placeholder"  (keyup)="onKeyUpPlaceholder()" class="option-input" type="text" placeholder="">
                   </div>
 
                   <div class="option">
                     <span class="option-name">ID</span>
-                    <input class="option-input" type="text" placeholder="">
+                    <input [(ngModel)]= "selected_option_id"  (keyup)="onKeyUpId()" class="option-input" type="text" placeholder="">
                   </div>
 
                   <div class="option">
-                    <span class="option-name">Class</span>
-                    <input class="option-input" type="text" placeholder="">
+                    <span  class="option-name">Class</span>
+                    <input [(ngModel)]="selected_option_class"  (keyup)="onKeyUpClass()"  class="option-input" type="text" placeholder="">
                   </div>
 
 
@@ -162,7 +156,7 @@
                   
 
                   <div class="option">
-                    <button class="btn btn-primary" style="margin-left: 10%;;">Close</button><button class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                    <button class="btn btn-primary" (click) = "clearSelectedElement();" style="margin-left: 10%;">Close</button><button class="btn btn-danger" (click)="deleteElement()" style="margin-left: 20px;">Delete</button>
                   </div>
 
               </div>
@@ -180,7 +174,7 @@
 
                   <div class="option">
                     <span class="option-name">Name</span>
-                    <input class="option-input" type="text" placeholder="">
+                    <input  class="option-input" type="text" placeholder="">
                   </div>
                   <div class="option">
                     <span class="option-name">ID</span>
@@ -207,6 +201,9 @@
 
 
 
+  <div class="row" id="preview">
+
+    </div>
 
 
 
